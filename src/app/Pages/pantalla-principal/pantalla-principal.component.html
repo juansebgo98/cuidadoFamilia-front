@@ -1,3 +1,4 @@
+
 <div class="main-container">
   <div class="sidebar">
     <button (click)="agregarNuevoEvento()" class="btn-agregar-evento">Agregar nuevo evento</button>
@@ -5,27 +6,27 @@
       <h3>Leyenda de Iconos</h3>
       <div class="legend-item">
         <i class="fa-sharp fa-solid fa-pills"></i>
-        <span>Medicamento Comprado</span>
+        <span>Medicamento comprado</span>
       </div>
       <div class="legend-item">
         <i class="fa-solid fa-user-doctor"></i>
         <span>Cita medica</span>
       </div>
+      <div class="legend-item">
+        <i class="fa-solid fa-ticket"></i>
+        <span>Ticket comprado</span>
+      </div>
+      <div class="legend-item">
+        <i class="fa-solid fa-mug-hot"></i>
+        <span>Dias de permiso</span>
+      </div>
       <!-- Agrega más iconos según sea necesario -->
     </div>
   </div>
-  
   <div class="calendar-container">
-    <mwl-calendar-month-view
-      [viewDate]="viewDate"
-      [events]="eventos"
-      [locale]="locale"
-      [activeDayIsOpen]="activeDayIsOpen"
-      [cellTemplate]="eventTemplate"
-      [weekStartsOn]="weekStartsOn"
-      [weekendDays]="weekendDays"
-      (dayClicked)="dayClicked($event.day)"
-      (eventClicked)="eventClicked($event.event)">
+    <mwl-calendar-month-view [viewDate]="viewDate" [events]="eventos" [locale]="locale"
+      [activeDayIsOpen]="activeDayIsOpen" [cellTemplate]="eventTemplate" [weekStartsOn]="weekStartsOn"
+      [weekendDays]="weekendDays" (dayClicked)="dayClicked($event.day)" (eventClicked)="eventClicked($event.event)">
     </mwl-calendar-month-view>
   </div>
 </div>
