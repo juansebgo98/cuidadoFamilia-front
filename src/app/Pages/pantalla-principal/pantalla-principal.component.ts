@@ -19,12 +19,12 @@ export class PantallaPrincipalComponent implements OnInit {
   CalendarView = CalendarView;
   viewDate: Date = new Date();
   eventos: CalendarEvent[] = [];
-  activeDayIsOpen: boolean = true;
+  activeDayIsOpen: boolean = false;
   locale: string = 'es';
   weekStartsOn: number = DAYS_OF_WEEK.MONDAY;
   weekendDays: number[] = [DAYS_OF_WEEK.FRIDAY, DAYS_OF_WEEK.SATURDAY];
-  
-  constructor(private eventoService: EventoService) {}
+
+  constructor(private eventoService: EventoService) { }
 
   ngOnInit(): void {
     this.cargarEventos();
@@ -52,6 +52,10 @@ export class PantallaPrincipalComponent implements OnInit {
         return 'fa-pills';
       case 'Cita':
         return 'fa-user-doctor';
+      case 'Permiso':
+        return 'fa-mug-hot';
+      case 'ComprarMedicina':
+        return 'fa-receipt'
       // Añade más casos según sea necesario
       default:
         return 'fa-question-circle';
