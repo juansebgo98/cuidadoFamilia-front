@@ -1,14 +1,15 @@
 .main-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 100vh;
 }
 
 .sidebar {
-  width: 300px;
   padding: 20px;
   background-color: #f0f0f0;
   border-right: 1px solid #ddd;
+  width: 100%; /* Ancho inicial al 100% */
+  max-width: calc(100vw - 40px); /* Ancho máximo igual al ancho de la pantalla menos un pequeño margen */
 }
 
 .calendar-container {
@@ -59,4 +60,19 @@
   margin-right: 5px;
   display: flex;
   align-items: center;
+}
+
+@media (min-width: 768px) {
+  .main-container {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    width: 300px; /* Ancho fijo para pantallas grandes */
+    max-width: 300px; /* Ancho máximo */
+  }
+
+  .calendar-container {
+    width: calc(100% - 300px); /* Ajustar el ancho del calendario */
+  }
 }

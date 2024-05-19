@@ -5,8 +5,20 @@
     <div class="header-menu">
         <a mat-button routerLink="/pantalla-principal" routerLinkActive="active-link">Inicio</a>
         <a mat-button routerLink="/pantalla-medicamento" routerLinkActive="active-link">Medicamentos</a>
-        <a mat-button routerLink="/pantalla-citamedica" routerLinkActive="active-link">Citas Medicas</a>
+        <a mat-button routerLink="/pantalla-citamedica" routerLinkActive="active-link">Citas Médicas</a>
         <a mat-button routerLink="/pantalla-permisos" routerLinkActive="active-link">Permisos</a>
+        <!-- Agregar más enlaces aquí -->
+    </div>
+    <div class="hamburger-menu" (click)="toggleDropdownMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="dropdown-menu" [ngClass]="{'show': dropdownOpen}">
+        <a mat-button routerLink="/pantalla-principal" routerLinkActive="active-link" (click)="toggleDropdownMenu()">Inicio</a>
+        <a mat-button routerLink="/pantalla-medicamento" routerLinkActive="active-link" (click)="toggleDropdownMenu()">Medicamentos</a>
+        <a mat-button routerLink="/pantalla-citamedica" routerLinkActive="active-link" (click)="toggleDropdownMenu()">Citas Médicas</a>
+        <a mat-button routerLink="/pantalla-permisos" routerLinkActive="active-link" (click)="toggleDropdownMenu()">Permisos</a>
         <!-- Agregar más enlaces aquí -->
     </div>
 </mat-toolbar>

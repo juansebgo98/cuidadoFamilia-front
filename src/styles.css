@@ -2,5 +2,9 @@
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 /* Importar Font Awesome */
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
