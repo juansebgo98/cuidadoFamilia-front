@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { CalendarView, CalendarEvent } from 'angular-calendar';
+import { CalendarView, CalendarEvent, DAYS_OF_WEEK } from 'angular-calendar';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { isSameDay, isSameMonth } from 'date-fns';
@@ -13,6 +13,7 @@ registerLocaleData(localeEs);
   styleUrls: ['./pantalla-principal.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class PantallaPrincipalComponent implements OnInit {
   view: CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
@@ -20,7 +21,9 @@ export class PantallaPrincipalComponent implements OnInit {
   eventos: CalendarEvent[] = [];
   activeDayIsOpen: boolean = true;
   locale: string = 'es';
-
+  weekStartsOn: number = DAYS_OF_WEEK.MONDAY;
+  weekendDays: number[] = [DAYS_OF_WEEK.FRIDAY, DAYS_OF_WEEK.SATURDAY];
+  
   constructor(private eventoService: EventoService) {}
 
   ngOnInit(): void {
@@ -38,9 +41,21 @@ export class PantallaPrincipalComponent implements OnInit {
           primary: '#ad2121',
           secondary: '#FAE3E3'
         },
-        meta: { iconUrl: evento.iconUrl }
+        meta: { iconClass: this.getIconClass(evento.tipo) }
       }));
     });
+  }
+
+  getIconClass(tipo: string): string {
+    switch (tipo) {
+      case 'Mecidamento':
+        return 'fa-pills';
+      case 'Cita':
+        return 'fa-user-doctor';
+      // Añade más casos según sea necesario
+      default:
+        return 'fa-question-circle';
+    }
   }
 
   eventClicked(event: CalendarEvent<any>): void {
@@ -56,5 +71,9 @@ export class PantallaPrincipalComponent implements OnInit {
       }
       this.viewDate = date;
     }
+  }
+
+  agregarNuevoEvento(): void {
+    // Lógica para agregar un nuevo evento
   }
 }

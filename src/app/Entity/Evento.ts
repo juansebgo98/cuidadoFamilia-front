@@ -3,14 +3,16 @@ export class Evento {
     start: Date;
     end: Date;
     title: string;
+    tipo: string;
     iconUrl: string; // Actualizar el nombre de la propiedad para mayor claridad
   
-    constructor(id: number, start: Date, end: Date, title: string, iconUrl: string) {
+    constructor(id: number, start: Date, end: Date, title: string, iconUrl: string,tipo: string) {
       this.id = id;
       this.start = start;
       this.end = end;
       this.title = title;
       this.iconUrl = iconUrl;
+      this.tipo = tipo;
     }
   }
   

@@ -1,22 +1,42 @@
-<div class="calendar-container">
+<div class="main-container">
+  <div class="sidebar">
+    <button (click)="agregarNuevoEvento()" class="btn-agregar-evento">Agregar nuevo evento</button>
+    <div class="icon-legend">
+      <h3>Leyenda de Iconos</h3>
+      <div class="legend-item">
+        <i class="fa-sharp fa-solid fa-pills"></i>
+        <span>Medicamento Comprado</span>
+      </div>
+      <div class="legend-item">
+        <i class="fa-solid fa-user-doctor"></i>
+        <span>Cita medica</span>
+      </div>
+      <!-- Agrega más iconos según sea necesario -->
+    </div>
+  </div>
+  
+  <div class="calendar-container">
     <mwl-calendar-month-view
       [viewDate]="viewDate"
       [events]="eventos"
+      [locale]="locale"
       [activeDayIsOpen]="activeDayIsOpen"
       [cellTemplate]="eventTemplate"
+      [weekStartsOn]="weekStartsOn"
+      [weekendDays]="weekendDays"
       (dayClicked)="dayClicked($event.day)"
       (eventClicked)="eventClicked($event.event)">
     </mwl-calendar-month-view>
   </div>
-  
-  <ng-template #eventTemplate let-day="day" let-events="day.events">
-    <div class="cal-cell-top">
-      {{ day.date | calendarDate:'monthViewDayNumber':locale }}
+</div>
+
+<ng-template #eventTemplate let-day="day" let-events="day.events">
+  <div class="cal-cell-top">
+    {{ day.date | calendarDate:'monthViewDayNumber':locale }}
+  </div>
+  <div *ngIf="events && events.length > 0" class="event-icons-container">
+    <div *ngFor="let event of events" class="event-icon">
+      <i class="fa-sharp fa-solid" [ngClass]="event.meta.iconClass"></i>
     </div>
-    <div *ngIf="events && events.length > 0" class="event-icons-container">
-      <div *ngFor="let event of events" class="event-icon">
-        <i class="fa-sharp fa-solid fa-pills"></i>
-      </div>
-    </div>
-  </ng-template>
-  
+  </div>
+</ng-template>
