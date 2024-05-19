@@ -1,0 +1,27 @@
+/* src/app/pantalla-principal/pantalla-principal.component.css */
+.event-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+  
+  .calendar-event {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cal-event {
+    display: flex;
+    align-items: center;
+  }
+  .event-icons-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .event-icon {
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+  }
+  

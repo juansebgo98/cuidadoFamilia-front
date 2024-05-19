@@ -1,0 +1,22 @@
+<div class="calendar-container">
+    <mwl-calendar-month-view
+      [viewDate]="viewDate"
+      [events]="eventos"
+      [activeDayIsOpen]="activeDayIsOpen"
+      [cellTemplate]="eventTemplate"
+      (dayClicked)="dayClicked($event.day)"
+      (eventClicked)="eventClicked($event.event)">
+    </mwl-calendar-month-view>
+  </div>
+  
+  <ng-template #eventTemplate let-day="day" let-events="day.events">
+    <div class="cal-cell-top">
+      {{ day.date | calendarDate:'monthViewDayNumber':locale }}
+    </div>
+    <div *ngIf="events && events.length > 0" class="event-icons-container">
+      <div *ngFor="let event of events" class="event-icon">
+        <i class="fa-sharp fa-solid fa-pills"></i>
+      </div>
+    </div>
+  </ng-template>
+  
