@@ -1,0 +1,19 @@
+<div class="login-container">
+  <mat-card class="login-box">
+    <div class="image-container">
+      <img mat-card-image
+        src="https://cdn2.iconfinder.com/data/icons/audio-16/96/user_avatar_profile_login_button_account_member-512.png"
+        alt="User Avatar">
+    </div> <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <mat-form-field class="form-group">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" id="email" placeholder="Teclea tu email" formControlName="username">
+        </mat-form-field>
+        <mat-form-field class="form-group">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" id="password" placeholder="Teclea contraseña" formControlName="password">
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="login-button" type="submit">Login</button>
+      </form>

@@ -9,18 +9,26 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { PantallaPrincipalComponent } from './Pages/pantalla-principal/pantalla-principal.component';
 import { HeaderComponent } from './Components/header/header.component';
-
+import { FormsModule } from '@angular/forms'; // Import the FormsModule
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { LoginComponent } from './Pages/login/login.component'; // Import the MatDatepickerModule
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from './auth.guard';
 const routes: Routes = [
-  { path: '', redirectTo: '/pantalla-principal', pathMatch: 'full' },
-  { path: 'pantalla-principal', component: PantallaPrincipalComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'principal', component: PantallaPrincipalComponent, canActivate: [AuthGuard]},
+  { path: 'login', component: LoginComponent }
   // Agrega más rutas aquí según sea necesario
 ];
-
 @NgModule({
   declarations: [
     AppComponent,
     PantallaPrincipalComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +36,13 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatCardModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
