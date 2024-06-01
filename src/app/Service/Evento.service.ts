@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Usuario } from '../Entity/Usuario';
-import { PersonaMayor } from '../Entity/PersonaMayor';
-import { Medicamento } from '../Entity/Medicamento';
-import { Ticket } from '../Entity/Ticket';
 import { CitaMedica } from '../Entity/CitaMedica';
 import { Comentario } from '../Entity/Comentario';
 import { InformeMedico } from '../Entity/InformeMedico';
+import { Medicamento } from '../Entity/Medicamento';
 import { PermisoLaboral } from '../Entity/PermisoLaboral';
+import { PersonaMayor } from '../Entity/PersonaMayor';
+import { Ticket } from '../Entity/Ticket';
+import { Usuario } from '../Entity/Usuario';
 
 @Injectable({
   providedIn: 'root'

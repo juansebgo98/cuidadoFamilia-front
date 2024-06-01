@@ -1,10 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { CalendarView, CalendarEvent, DAYS_OF_WEEK } from 'angular-calendar';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { CalendarEvent, CalendarView, DAYS_OF_WEEK } from 'angular-calendar';
 import { isSameDay, isSameMonth } from 'date-fns';
-import { EventTransformService } from 'src/app/Service/event-transform.service';
 import { EventoService } from 'src/app/Service/Evento.service';
+import { EventTransformService } from 'src/app/Service/event-transform.service';
 
 registerLocaleData(localeEs);
 

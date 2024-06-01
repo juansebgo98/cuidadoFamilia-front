@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { CalendarEvent } from 'angular-calendar';
-import { Medicamento } from '../Entity/Medicamento';
-import { Ticket } from '../Entity/Ticket';
 import { CitaMedica } from '../Entity/CitaMedica';
 import { Comentario } from '../Entity/Comentario';
 import { InformeMedico } from '../Entity/InformeMedico';
+import { Medicamento } from '../Entity/Medicamento';
 import { PermisoLaboral } from '../Entity/PermisoLaboral';
+import { Ticket } from '../Entity/Ticket';
 
 @Injectable({
     providedIn: 'root'

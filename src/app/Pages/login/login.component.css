@@ -57,10 +57,12 @@
   margin-top: 1rem;
   font-size: 0.8rem;
 }
+
 .image-container {
   display: flex;
   justify-content: center;
 }
+
 .login-actions {
   display: flex;
   flex-direction: column;

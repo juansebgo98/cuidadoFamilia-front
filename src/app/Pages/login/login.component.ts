@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/Service/auth.service';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  
+
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
@@ -30,7 +30,5 @@ export class LoginComponent {
         }
       });
     }
-  }
-  onSubmit() {
   }
 }
